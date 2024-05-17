@@ -1,7 +1,6 @@
 package main
 
 import (
-	"database/sql"
 	"log"
 	"net/http"
 	"os"
@@ -24,7 +23,7 @@ func main() {
 		log.Fatal("Port not found in env file")
 	}
 
-	db := connectToDb(&sql.DB{})
+	db := connectToDb()
 	log.Println(db)
 
 	router := chi.NewRouter()

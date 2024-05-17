@@ -8,7 +8,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func connectToDb(db *sql.DB) *sql.DB {
+func connectToDb() *sql.DB {
 	connStr := os.Getenv("DB_URL")
 	if connStr == "" {
 		log.Fatal("DB_URL not found in env file")
