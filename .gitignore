@@ -2,3 +2,4 @@
 LearningGo
 .env
 vendor/
+postgres*

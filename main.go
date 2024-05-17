@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"log"
 	"net/http"
 	"os"
@@ -8,9 +9,11 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
+	_ "github.com/lib/pq"
 )
 
 func main() {
+
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
@@ -20,6 +23,9 @@ func main() {
 	if port == "" {
 		log.Fatal("Port not found in env file")
 	}
+
+	db := connectToDb(&sql.DB{})
+	log.Println(db)
 
 	router := chi.NewRouter()
 
